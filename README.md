@@ -27,7 +27,6 @@ This project consists of the following steps:
 7. Run Pipeline and check the Tables on Azure SQL Database, Synapse and the summary file on your container on Azure Data Lake Gen2
 
 
-
 ## Data Schema
 ![nyc-payroll-db-schema](https://github.com/ptoscanodebritto/Azure-Data-Factory-NYC-Payroll/assets/169722367/df97a030-069b-4582-857e-401b74f97209) 
 
