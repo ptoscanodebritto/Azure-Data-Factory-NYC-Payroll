@@ -31,4 +31,5 @@ This project consists of the following steps:
 ![nyc-payroll-db-schema](https://github.com/ptoscanodebritto/Azure-Data-Factory-NYC-Payroll/assets/169722367/df97a030-069b-4582-857e-401b74f97209) 
 
 ## Pipeline Framework
-![data-integration-pipelines-overview](https://github.com/ptoscanodebritto/Azure-Data-Factory-NYC-Payroll/assets/169722367/a1e8a048-0977-4784-9754-a56cf4de316c)
+
+![New Data Flow](https://github.com/ptoscanodebritto/Azure-Data-Factory-NYC-Payroll/assets/169722367/1508ab3e-bbec-47a9-9c91-f96e9912a6de)
