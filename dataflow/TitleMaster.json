@@ -1,0 +1,50 @@
+{
+	"name": "TitleMaster",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "TitleMaster_edl",
+						"type": "DatasetReference"
+					},
+					"name": "TitleMasteredl"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "TitleMaster_db",
+						"type": "DatasetReference"
+					},
+					"name": "TitleMasterSQL"
+				}
+			],
+			"transformations": [],
+			"scriptLines": [
+				"source(output(",
+				"          TitleCode as string,",
+				"          TitleDescription as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> TitleMasteredl",
+				"TitleMasteredl sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          TitleCode as string,",
+				"          TitleDescription as string",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError') ~> TitleMasterSQL"
+			]
+		}
+	}
+}

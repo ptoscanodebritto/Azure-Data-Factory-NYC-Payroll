@@ -1,0 +1,50 @@
+{
+	"name": "AgencyMaster",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "Agency_Master_edl",
+						"type": "DatasetReference"
+					},
+					"name": "AgencyMasteredl"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "AgencyMaster_db",
+						"type": "DatasetReference"
+					},
+					"name": "AgencyMasterSQL"
+				}
+			],
+			"transformations": [],
+			"scriptLines": [
+				"source(output(",
+				"          AgencyID as string,",
+				"          AgencyName as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> AgencyMasteredl",
+				"AgencyMasteredl sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          AgencyID as string,",
+				"          AgencyName as string",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError') ~> AgencyMasterSQL"
+			]
+		}
+	}
+}
